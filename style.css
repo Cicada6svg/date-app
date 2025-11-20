@@ -177,4 +177,21 @@ footer {
   background-color: #ff6b81;
   transform: scale(1.03);
 }
+.profile {
+  padding: 40px 20px;
+  background-color: #fff;
+  max-width: 800px;
+  margin: 20px auto;
+}
 
+.profile h2 {
+  color: #1e1e2f;
+}
+
+#profile-content p {
+  margin: 8px 0;
+}
+
+#profile-content hr {
+  margin: 20px 0;
+}
