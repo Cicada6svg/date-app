@@ -1,0 +1,96 @@
+/* 🌈 Global Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fdfdfd;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* 🧭 Header & Navigation */
+header {
+  background-color: #1e1e2f;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 15px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ff6b81;
+}
+
+/* 💖 Hero Section */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(to right, #ff6b81, #f9a1bc);
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.hero button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #1e1e2f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero button:hover {
+  background-color: #ff6b81;
+  transform: scale(1.05);
+}
+
+/* 🌟 Features Section */
+.features {
+  padding: 40px 20px;
+  background-color: #f0f0f0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.features ul {
+  list-style: none;
+  padding: 0;
+}
+
+.features li {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+/* ⚓ Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #1e1e2f;
+  color: white;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 600px) {
+  .hero {
+    padding: 40px 10px;
+  }
+
+  .hero button {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+}
