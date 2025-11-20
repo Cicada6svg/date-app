@@ -3,21 +3,28 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/fireba
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-// 🔥 Your Firebase config (replace with your own)
+// 🔥 Your Firebase configuration
+
+// Import the functions you need from the SDKs you need
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBjBfv_OAxXzY8ITG5JM4DLNr_S61bD61K",
-  authDomain: "com.cicatrixintl.campuscrush254",
+  apiKey: "AIzaSyC830lhq-2I0lBMxdT-SPFJVNkVtK96z38",
+  authDomain: "campus-crush-b.firebaseapp.com",
   projectId: "campus-crush-b",
   storageBucket: "campus-crush-b.firebasestorage.app",
-  messagingSenderId: "1:862850121932:android:5ec93ff1d68ed32e988269",
-  appId: "862850121932"
+  messagingSenderId: "862850121932",
+  appId: "1:862850121932:web:7b8d75688564d02f988269",
+  measurementId: "G-M6K5200C05"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-
+const analytics = getAnalytics(app);
 // 🎓 Handle Sign-Up Form
 const signupForm = document.querySelector(".signup-form");
 
