@@ -255,6 +255,57 @@ onAuthStateChanged(auth, async (user) => {
     return;
   }
 });
+/* Loading state for primary buttons */
+.primary.loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.9;
+}
+.primary.loading::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-top-color: rgba(255,255,255,0.9);
+  animation: spin 0.9s linear infinite;
+}
+
+/* Error message style */
+.error {
+  color: #c43d3d;
+  font-size: 13px;
+  margin-top: 8px;
+  display: none;
+}
+
+/* Small helper styles */
+.muted { opacity: 0.9; }
+.onboard-nav { display:flex; gap:12px; justify-content:flex-end; margin-top:18px; align-items:center; }
+.onboard-form .field-group label { display:block; margin-bottom:8px; font-weight:600; color:var(--primary); }
+
+/* Spinner keyframes */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Slight focus states for inputs */
+input:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 6px 18px rgba(30,30,47,0.06);
+  border-color: var(--accent);
+}
+
+/* Small responsive tweak */
+@media (max-width: 520px) {
+  .onboard-card { padding: 18px; }
+  .option-row { gap:8px; }
+  .onboard-nav { justify-content: center; }
+}
 
 // Init
 showStep(currentStep);
