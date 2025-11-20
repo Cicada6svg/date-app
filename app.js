@@ -5,12 +5,12 @@ import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/10
 
 // 🔥 Your Firebase config (replace with your own)
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyBjBfv_OAxXzY8ITG5JM4DLNr_S61bD61K",
+  authDomain: "com.cicatrixintl.campuscrush254",
+  projectId: "campus-crush-b",
+  storageBucket: "campus-crush-b.firebasestorage.app",
+  messagingSenderId: "1:862850121932:android:5ec93ff1d68ed32e988269",
+  appId: "862850121932"
 };
 
 // Initialize Firebase
