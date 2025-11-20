@@ -70,4 +70,53 @@
           const data = userDoc.data();
           profileContent.innerHTML = `
             <p><strong>Name:</strong> ${data.name || ""}</p>
-            <p><strong>Email:</strong> ${data.email || ""
+            <p><strong>Email:</strong> ${data.email || ""}</p>
+            <p><strong>School:</strong> ${data.school || ""}</p>
+            <p><strong>Joined:</strong> ${data.createdAt ? new Date(data.createdAt.seconds ? data.createdAt.seconds * 1000 : data.createdAt).toLocaleDateString() : ""}</p>
+            <hr />
+            <h3>Edit Profile</h3>
+            <form id="edit-profile-form">
+              <label for="bio">Bio</label>
+              <textarea id="bio" name="bio" rows="4" style="width:100%;">${data.bio || ""}</textarea>
+
+              <label for="interests">Interests (comma separated)</label>
+              <input id="interests" name="interests" value="${(data.interests || []).join ? (data.interests || []).join(", ") : (data.interests || "")}" />
+
+              <button type="submit">Save Profile</button>
+            </form>
+          `;
+
+          // Handle profile edit submission
+          const editForm = document.getElementById("edit-profile-form");
+          editForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const bio = document.getElementById("bio").value;
+            const interestsRaw = document.getElementById("interests").value;
+            const interests = interestsRaw.split(",").map(s => s.trim()).filter(Boolean);
+
+            try {
+              await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js").then(async ({ getFirestore, doc, updateDoc }) => {
+                const db2 = getFirestore();
+                await updateDoc(doc(db2, "users", user.uid), {
+                  bio,
+                  interests
+                });
+              });
+
+              alert("Profile updated!");
+            } catch (err) {
+              console.error("Error updating profile:", err);
+              alert("Failed to update profile: " + err.message);
+            }
+          });
+        } else {
+          profileContent.innerHTML = "<p>No profile data found.</p>";
+        }
+      } catch (err) {
+        console.error("Error fetching profile:", err);
+        profileContent.innerHTML = "<p>Error loading profile.</p>";
+      }
+    });
+  </script>
+</body>
+</html>
