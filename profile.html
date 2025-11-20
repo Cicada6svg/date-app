@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CampusCrush - Profile</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🎓💖 CampusCrush</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="profile.html">Profile</a>
+      <button id="logout-btn" style="display:none;">Logout</button>
+    </nav>
+  </header>
+
+  <section class="profile" id="profile-section">
+    <h2>Your Profile</h2>
+    <div id="profile-content">
+      <p>Loading profile...</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 CampusCrush. Made with ❤️ for students.</p>
+  </footer>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+    import { logout } from "./auth.js";
+
+    // Use same config as auth.js
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    const logoutBtn = document.getElementById("logout-btn");
+    if (logoutBtn) {
+      logoutBtn.style.display = "none";
+      logoutBtn.addEventListener("click", () => {
+        logout();
+      });
+    }
+
+    onAuthStateChanged(auth, async (user) => {
+      const profileContent = document.getElementById("profile-content");
+      if (!user) {
+        // Not logged in -> redirect to login
+        window.location.href = "login.html";
+        return;
+      }
+
+      // Logged in -> fetch and display profile
+      try {
+        const userDoc = await getDoc(doc(db, "users", user.uid));
+        if (userDoc.exists()) {
+          const data = userDoc.data();
+          profileContent.innerHTML = `
+            <p><strong>Name:</strong> ${data.name || ""}</p>
+            <p><strong>Email:</strong> ${data.email || ""
