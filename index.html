@@ -18,6 +18,11 @@
       <a href="#">FAQ</a>
     </nav>
   </header>
+<button id="logout-btn" style="display:none;" onclick="handleLogout()">Logout</button>
+<script type="module">
+  import { logout } from "./auth.js";
+  window.handleLogout = logout;
+</script>
 
   <section class="hero">
     <h2>Find your vibe. Build your tribe.</h2>
