@@ -8,14 +8,17 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-// Replace with your Firebase config
+// Replace with your Firebase con
 const firebaseConfig = {
-  apiKey: "AIzaSyBjBfv_OAxXzY8ITG5JM4DLNr_S61bD61k",
-  authDomain: "com.cicatrixintl.campuscrush254",
+  apiKey: "AIzaSyC830lhq-2I0lBMxdT-SPFJVNkVtK96z38",
+  authDomain: "campus-crush-b.firebaseapp.com",
   projectId: "campus-crush-b",
   storageBucket: "campus-crush-b.firebasestorage.app",
-  messagingSenderId: "1:862850121932:android:5ec93ff1d68ed32e988269",
-  appId: "862850121932"
+  messagingSenderId: "862850121932",
+  appId: "1:862850121932:web:7b8d75688564d02f988269",
+  measurementId: "G-M6K5200C05"
+
+  
 };
 
 // Initialize Firebase
