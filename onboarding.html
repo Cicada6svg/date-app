@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CampusCrush — Onboarding</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="onboard-wrapper container">
+    <div class="card onboard-card">
+      <header class="onboard-header">
+        <h1>Welcome to CampusCrush 🎉</h1>
+        <p>Tell us a bit about yourself so we can find better matches.</p>
+      </header>
+
+      <form id="onboard-form" class="onboard-form">
+        <section class="field-group">
+          <label>I'm a</label>
+          <div class="option-row">
+            <label class="option">
+              <input type="radio" name="gender" value="male" required /> Male
+            </label>
+            <label class="option">
+              <input type="radio" name="gender" value="female" /> Female
+            </label>
+            <label class="option">
+              <input type="radio" name="gender" value="nonbinary" /> Non-binary
+            </label>
+            <label class="option">
+              <input type="radio" name="gender" value="prefer_not" /> Prefer not to say
+            </label>
+          </div>
+        </section>
+
+        <section class="field-group">
+          <label>Looking for</label>
+          <div class="option-row">
+            <label class="option">
+              <input type="checkbox" name="seeking" value="friendship" /> Friendship
+            </label>
+            <label class="option">
+              <input type="checkbox" name="seeking" value="dating" /> Dating
+            </label>
+            <label class="option">
+              <input type="checkbox" name="seeking" value="study" /> Study buddies
+            </label>
+            <label class="option">
+              <input type="checkbox" name="seeking" value="networking" /> Networking
+            </label>
+          </div>
+        </section>
+
+        <section class="field-group">
+          <label>Interests (pick a few)</label>
+          <div class="chips">
+            <button type="button" class="chip">Music</button>
+            <button type="button" class="chip">Sports</button>
+            <button type="button" class="chip">Tech</button>
+            <button type="button" class="chip">Art</button>
+            <button type="button" class="chip">Gaming</button>
+            <button type="button" class="chip">Travel</button>
+            <button type="button" class="chip">Food</button>
+          </div>
+          <input id="custom-interests" placeholder="Add custom interests (comma separated)" />
+        </section>
+
+        <section class="field-group">
+          <label>Visibility</label>
+          <div class="option-row">
+            <label class="option">
+              <input type="radio" name="visibility" value="everyone" checked /> Visible to everyone
+            </label>
+            <label class="option">
+              <input type="radio" name="visibility" value="school_only" /> Only my school
+            </label>
+            <label class="option">
+              <input type="radio" name="visibility" value="private" /> Private (no browsing)
+            </label>
+          </div>
+        </section>
+
+        <div style="display:flex; gap:12px; margin-top:18px; align-items:center;">
+          <button type="submit" class="primary">Save Preferences</button>
+          <button type="button" id="skip-btn" class="muted">Skip for now</button>
+        </div>
+
+        <p class="muted small" style="margin-top:12px;">
+          You can change these later from your profile settings.
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="onboard.js"></script>
+</body>
+</html>
