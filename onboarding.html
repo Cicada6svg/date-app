@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,33 +9,36 @@
 </head>
 <body>
   <div class="onboard-wrapper container">
-    <div class="card onboard-card">
+    <div class="card onboard-card" id="onboard-card" aria-live="polite">
       <header class="onboard-header">
         <h1>Welcome to CampusCrush 🎉</h1>
-        <p>Tell us a bit about yourself so we can find better matches.</p>
+        <p id="onboard-sub">Tell us a bit about yourself so we can find better matches.</p>
       </header>
 
-      <form id="onboard-form" class="onboard-form">
-        <section class="field-group">
-          <label>I'm a</label>
+      <form id="onboard-form" class="onboard-form" novalidate>
+        <!-- Step 1: Gender -->
+        <section class="field-group onboard-step" data-step="1">
+          <label>I'm a <span class="tooltip" data-tooltip="Select the option that best describes you.">ⓘ</span></label>
           <div class="option-row">
-            <label class="option">
+            <label class="option" tabindex="0">
               <input type="radio" name="gender" value="male" required /> Male
             </label>
-            <label class="option">
+            <label class="option" tabindex="0">
               <input type="radio" name="gender" value="female" /> Female
             </label>
-            <label class="option">
+            <label class="option" tabindex="0">
               <input type="radio" name="gender" value="nonbinary" /> Non-binary
             </label>
-            <label class="option">
+            <label class="option" tabindex="0">
               <input type="radio" name="gender" value="prefer_not" /> Prefer not to say
             </label>
           </div>
+          <p class="error" id="error-gender" aria-hidden="true"></p>
         </section>
 
-        <section class="field-group">
-          <label>Looking for</label>
+        <!-- Step 2: Seeking -->
+        <section class="field-group onboard-step" data-step="2" aria-hidden="true">
+          <label>Looking for <span class="tooltip" data-tooltip="You can choose more than one."></span></label>
           <div class="option-row">
             <label class="option">
               <input type="checkbox" name="seeking" value="friendship" /> Friendship
@@ -49,24 +53,28 @@
               <input type="checkbox" name="seeking" value="networking" /> Networking
             </label>
           </div>
+          <p class="error" id="error-seeking" aria-hidden="true"></p>
         </section>
 
-        <section class="field-group">
-          <label>Interests (pick a few)</label>
-          <div class="chips">
-            <button type="button" class="chip">Music</button>
-            <button type="button" class="chip">Sports</button>
-            <button type="button" class="chip">Tech</button>
-            <button type="button" class="chip">Art</button>
-            <button type="button" class="chip">Gaming</button>
-            <button type="button" class="chip">Travel</button>
-            <button type="button" class="chip">Food</button>
+        <!-- Step 3: Interests -->
+        <section class="field-group onboard-step" data-step="3" aria-hidden="true">
+          <label>Interests (pick a few) <span class="tooltip" data-tooltip="Pick interests to help us match you with similar students."></span></label>
+          <div class="chips" role="list">
+            <button type="button" class="chip" data-value="Music">Music</button>
+            <button type="button" class="chip" data-value="Sports">Sports</button>
+            <button type="button" class="chip" data-value="Tech">Tech</button>
+            <button type="button" class="chip" data-value="Art">Art</button>
+            <button type="button" class="chip" data-value="Gaming">Gaming</button>
+            <button type="button" class="chip" data-value="Travel">Travel</button>
+            <button type="button" class="chip" data-value="Food">Food</button>
           </div>
           <input id="custom-interests" placeholder="Add custom interests (comma separated)" />
+          <p class="error" id="error-interests" aria-hidden="true"></p>
         </section>
 
-        <section class="field-group">
-          <label>Visibility</label>
+        <!-- Step 4: Visibility -->
+        <section class="field-group onboard-step" data-step="4" aria-hidden="true">
+          <label>Visibility <span class="tooltip" data-tooltip="Control who can find and view your profile."></span></label>
           <div class="option-row">
             <label class="option">
               <input type="radio" name="visibility" value="everyone" checked /> Visible to everyone
@@ -80,9 +88,17 @@
           </div>
         </section>
 
-        <div style="display:flex; gap:12px; margin-top:18px; align-items:center;">
+        <!-- Navigation -->
+        <div class="onboard-nav" aria-hidden="false">
+          <button type="button" id="prev-btn" class="muted" disabled>Back</button>
+          <button type="button" id="next-btn" class="primary">Next</button>
+          <button type="button" id="skip-btn" class="muted">Skip</button>
+        </div>
+
+        <!-- Final actions -->
+        <div id="final-actions" style="display:none; margin-top:18px;">
           <button type="submit" class="primary">Save Preferences</button>
-          <button type="button" id="skip-btn" class="muted">Skip for now</button>
+          <button type="button" id="final-skip" class="muted">Skip for now</button>
         </div>
 
         <p class="muted small" style="margin-top:12px;">
