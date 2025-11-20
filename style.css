@@ -314,3 +314,50 @@ skipBtn.addEventListener("click", async () => {
   const ok = await savePreferences(user.uid, { skipped: true });
   if (ok) window.location.href = "profile.html";
 });
+/* Animations & transitions */
+.onboard-card {
+  transform-origin: center top;
+  animation: cardPop 420ms cubic-bezier(.2,.9,.2,1);
+}
+
+@keyframes cardPop {
+  0% { transform: translateY(18px) scale(.995); opacity: 0; }
+  60% { transform: translateY(-6px) scale(1.01); opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.onboard-step { transition: opacity 240ms ease, transform 240ms ease; }
+
+/* Tooltip */
+.onboard-tooltip {
+  position: absolute;
+  background: rgba(30,30,47,0.96);
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  z-index: 9999;
+  box-shadow: 0 8px 30px rgba(30,30,47,0.12);
+  max-width: 260px;
+}
+
+/* Chip animations */
+.chip {
+  transition: transform 120ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+.chip--active {
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Buttons */
+.primary {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(30,30,47,0.08);
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+.primary:hover { transform: translateY(-3px
