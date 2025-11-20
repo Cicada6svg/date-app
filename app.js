@@ -47,9 +47,9 @@ signupForm.addEventListener("submit", async (e) => {
       school,
       createdAt: new Date()
     });
-
-    alert("🎉 Welcome to CampusCrush, " + name + "!");
-    signupForm.reset();
+// Redirect new users to onboarding to collect preferences
+window.location.href = "onboarding.html";
+    
   } catch (error) {
     alert("❌ Error: " + error.message);
   }
