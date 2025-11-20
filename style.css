@@ -93,7 +93,34 @@ footer {
     display: block;
     margin: 10px 0;
   }
-}/* 💌 Sign-Up Section */
+}
+/* Auth forms */
+.auth-form {
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.auth-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #fff;
+}
+/* 💌 Sign-Up Section */
 .signup {
   background-color: #fff;
   padding: 50px 20px;
