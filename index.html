@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CampusCrush</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Inline CSS kept minimal — prefer keeping most styles in style.css */
+    .signup-form input,
+    .signup-form button {
+      width: 100%;
+      max-width: 400px;
+      margin: 0.5em 0;
+    }
+    .signup-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -18,11 +31,12 @@
       <a href="#">FAQ</a>
     </nav>
   </header>
-<button id="logout-btn" style="display:none;" onclick="handleLogout()">Logout</button>
-<script type="module">
-  import { logout } from "./auth.js";
-  window.handleLogout = logout;
-</script>
+
+  <button id="logout-btn" style="display:none;" onclick="handleLogout()">Logout</button>
+  <script type="module">
+    import { logout } from "./auth.js";
+    window.handleLogout = logout;
+  </script>
 
   <section class="hero">
     <h2>Find your vibe. Build your tribe.</h2>
@@ -39,42 +53,31 @@
       <li>🎯 Smart Match Suggestions</li>
       <li>🔒 Privacy Controls</li>
     </ul>
-  </section><section class="signup">
-  <h3>Join CampusCrush 💕</h3>
-  <p>Create your student profile and start connecting today!</p>
-  <form action="#" method="post" class="signup-form">
-    <label for="name">Full Name</label>
-    <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+  </section>
 
-    <label for="email">Student Email</label>
-    <input type="email" id="email" name="email" placeholder="Enter your student email" required />
+  <section class="signup">
+    <h3>Join CampusCrush 💕</h3>
+    <p>Create your student profile and start connecting today!</p>
+    <form action="#" method="post" class="signup-form" id="signup-form">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your full name" required />
 
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" placeholder="Create a password" required />
+      <label for="email">Student Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your student email" required />
 
-    <label for="school">University/College</label>
-    <input type="text" id="school" name="school" placeholder="Your school name" required />
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Create a password" required />
 
-    <button type="submit">Sign Up</button>
-  </form>
-</section>.signup-form input,
-.signup-form button {
-  width: 100%;
-  max-width: 400px;
-  margin: 0.5em 0;
-}.signup-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-  
+      <label for="school">University/College</label>
+      <input type="text" id="school" name="school" placeholder="Your school name" required />
+
+      <button type="submit">Sign Up</button>
+    </form>
+  </section>
 
   <footer>
     <script type="module" src="app.js"></script>
-    
     <p>&copy; 2025 CampusCrush. Made with ❤️ for students.</p>
   </footer>
 </body>
 </html>
-
-
